@@ -554,3 +554,90 @@ footer {
     }
     .creator-info p { font-size: 0.85rem; }
 }
+/* ===== FAQ (Аккордеон) ===== */
+.faq-card {
+    border-left: 5px solid var(--gold);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.faq-item {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.faq-item[open] {
+    border-color: var(--gold);
+}
+
+.faq-item summary {
+    padding: 16px 20px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    list-style: none; /* Убираем стандартный маркер */
+    position: relative;
+    user-select: none;
+    transition: color 0.3s;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none; /* Убираем маркер в Safari/Chrome */
+}
+
+.faq-item summary:hover {
+    color: var(--gold);
+}
+
+/* Красивая стрелочка для закрытого/открытого состояния */
+.faq-item summary::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: var(--gold);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+
+.faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-item[open] summary {
+    border-bottom: 1px solid var(--border);
+    color: var(--gold);
+}
+
+.faq-answer {
+    padding: 16px 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+.faq-answer strong {
+    color: #fff;
+}
+
+.faq-answer code {
+    background: #0a0c10;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--gold);
+    font-family: monospace;
+}
