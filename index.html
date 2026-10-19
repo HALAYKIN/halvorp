@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HalvoRP — RolePlay сервер в Майнкрафте. Город Халайкинград: фракции, экономика, лига кулачных боёв. IP: 37.27.166.65:25920">
+    <meta property="og:title" content="HalvoRP — Майнкрафт РП в Халайкинграде">
+    <meta property="og:description" content="RolePlay жизнь в величественном городе Халайкинград">
+    <title>HalvoRP — Майнкрафт РП в Халайкинграде</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Навигационное меню -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">HalvoRP</a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">О городе</a></li>
+                <li><a href="#league">Лига Боев</a></li>
+                <li><a href="#fractions">Фракции</a></li>
+                <li><a href="#join-fraction">Подать заявку</a></li>
+                <li><a href="#start">Как начать</a></li>
+                <li><a href="#creators">Создатели</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="header-content">
+            <h1 class="logo">HalvoRP</h1>
+            <p class="tagline">RolePlay жизнь в величественном городе Халайкинград</p>
+
+            <div class="header-buttons">
+                <button type="button" class="ip-box" id="ipCopyBtn" data-ip="37.27.166.65:25920">
+                    <span>IP: 37.27.166.65:25920</span>
+                    <small>(Нажми для копирования)</small>
+                </button>
+                <a href="https://halvomap.dynmap.xyz" target="_blank" rel="noopener" class="map-btn">
+                    🌐 3D-Карта (BlueMap)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный блок -->
+    <main>
+
+        <!-- Мониторинг онлайна -->
+        <section class="card monitoring-card">
+            <h2>Статус проекта</h2>
+            <div class="status-container">
+                <div class="status-item">Статус: <span id="server-status" class="loading">Загрузка...</span></div>
+                <div class="status-item">Игроков онлайн: <strong id="server-online">-</strong></div>
+                <div class="status-item">Версия: <span>1.21.11</span></div>
+            </div>
+        </section>
+
+        <!-- О сервере -->
+        <section id="about" class="card">
+            <h2>Добро пожаловать в Халайкинград!</h2>
+            <p>Халайкинград — это проработанный русский город со своей атмосферой, уникальной архитектурой и живой экономикой. Здесь вы можете стать кем угодно: законопослушным гражданином, влиятельным чиновником или грозой улиц. Вся история пишется самими игроками в реальном времени.</p>
+            <div class="voice-alert">
+                <strong>🎙️ Важно:</strong> Для игры на сервере обязателен мод <strong>Simple Voice Chat</strong>! Без него вы не сможете общаться с другими жителями города.
+            </div>
+        </section>
+
+        <!-- Лига кулачных боев -->
+        <section id="league" class="card league-card">
+            <div class="league-header">
+                <h2>🏆 Лига кулачных боев</h2>
+                <span class="badge">Каждое воскресенье</span>
+            </div>
+            <p>Легендарное событие Халайкинграда! Каждое воскресенье лучшие бойцы сходятся на арене в честном поединке на кулаках. Никакого оружия, брони или зелий — только ваша реакция и мастерство.</p>
+            <div class="prize-box">
+                💰 Фиксированный призовой фонд: <strong>1 000 вирт</strong> победителю!
+            </div>
+        </section>
+
+        <!-- Государственные организации -->
+        <section id="fractions" class="card">
+            <h2>🏢 Фракции Халайкинграда</h2>
+            <p>Вы можете пройти собеседование в игре или занять государственную должность, отправив заявление ниже:</p>
+
+            <div class="fraction-grid">
+                <div class="fraction-item mvd">
+                    <h4>👮 МВД</h4>
+                    <p>Патрулируйте улицы Халайкинграда, пресекайте преступность и следите за соблюдением законов.</p>
+                </div>
+                <div class="fraction-item gov">
+                    <h4>🏛️ Правительство</h4>
+                    <p>Издавайте указы, регулируйте налоги, распределяйте бюджет и развивайте инфраструктуру.</p>
+                </div>
+                <div class="fraction-item med">
+                    <h4>🚑 Больница</h4>
+                    <p>Оказывайте медицинскую помощь, выезжайте на вызовы и спасайте пострадавших граждан.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма подачи заявки во фракцию -->
+        <section id="join-fraction" class="card form-card">
+            <h2>📝 Электронное заявление во фракцию</h2>
+            <p class="form-subtitle">Заполните анкету, скопируйте готовый текст и отправьте его в наш Discord/VK или передайте лидеру фракции.</p>
+
+            <form id="fractionForm" novalidate>
+                <div class="form-group">
+                    <label for="playerName">Ваш игровой ник (Nick_Name):</label>
+                    <input type="text" id="playerName" required placeholder="Например: Ivan_Ivanov"
+                           minlength="3" maxlength="16" pattern="[A-Za-z0-9_]+"
+                           title="Только латиница, цифры и подчёркивание (3–16 символов)">
+                    <small class="form-error" id="err-playerName"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="playerAge">Ваш игровой возраст (лет в штате):</label>
+                    <input type="number" id="playerAge" required placeholder="Например: 5" min="1" max="100">
+                    <small class="form-error" id="err-playerAge"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="targetFraction">Желаемая организация:</label>
+                    <select id="targetFraction" required>
+                        <option value="МВД">👮 МВД (Полиция)</option>
+                        <option value="Правительство">🏛️ Правительство</option>
+                        <option value="Больница">🚑 Больница (Медики)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="playerBio">Краткая история персонажа (2-3 предложения):</label>
+                    <textarea id="playerBio" rows="3" required minlength="20" maxlength="500"
+                              placeholder="Расскажите о себе..."></textarea>
+                    <small class="form-error" id="err-playerBio"></small>
+                </div>
+
+                <button type="submit" class="submit-btn">Сгенерировать заявку</button>
+            </form>
+
+            <!-- Окно с результатом сборки заявки -->
+            <div id="resultBox" class="result-box hidden">
+                <h3>Ваше готовое заявление:</h3>
+                <textarea id="outputText" readonly></textarea>
+                <button type="button" id="copyFormBtn" class="copy-form-btn">📋 Скопировать текст</button>
+            </div>
+        </section>
+
+        <!-- Быстрый старт -->
+        <section id="start" class="card steps-card">
+            <h2>Быстрый старт</h2>
+            <ol class="steps-list">
+                <li>Установите в свой лаунчер мод <strong>Simple Voice Chat</strong> для версии <strong>1.21.11</strong>.</li>
+                <li>Запустите игру (сервер поддерживает и лицензии, и <b>пиратки</b>).</li>
+                <li>Подключитесь по адресу: <code class="code-ip">37.27.166.65:25920</code></li>
+                    айте РП имя, сдавайте на права и добро пожаловать в Халайкинград!</li>
+            </ol>
+        </section>
+
+        <!-- Создатели -->
+        <section id="creators" class="card creators-card">
+            <h2>👑 Создатели проекта</h2>
+            <p class="form-subtitle">Люди, благодаря которым Халайкинград существует.</p>
+
+            <div class="creators-grid">
+                <div class="creator-item">
+                    <div class="creator-avatar" aria-hidden="true">H</div>
+                    <div class="creator-info">
+                        <h4>HALAYKIN</h4>
+                        <span class="creator-role">Разработчик</span>
+                        <p>Основатель проекта, разработка сайта и серверной части HalvoRP.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 HalvoRP. Все права защищены. Проект Халайкинград.</p>
+    </footer>
+
+    <!-- Контейнер для тостов -->
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
